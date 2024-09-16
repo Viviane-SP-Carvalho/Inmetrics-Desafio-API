@@ -1,0 +1,27 @@
+{
+  "name": "desafio-inmetrics-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:run": "cypress run --browser chrome --headless && npm run cypress:report",
+    "cypress:open": "npx cypres open",
+    "cypress:report": "npm run report:merge && npm run report:mocha",
+    "report:clean": "rm -rf mochawesome-report/* && rm -rf ${npm_package_name}",
+    "report:merge": "mochawesome-merge > mochawesome-report/report.json && rm -rf mochawesome-report/mochawesome",
+    "report:mocha": "marge -t ${npm_package_name} -p report -f report --timestamp ddmmyyyy_HHMMss mochawesome-report/report.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.14.2"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.0.1",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0"
+  }
+}
